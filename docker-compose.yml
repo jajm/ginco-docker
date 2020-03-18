@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  web:
+    build: ginco
+    image: ginco:TMA-2.0.9.8
+    depends_on:
+      - db
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_DATABASE: ginco
+      POSTGRES_USER: ginco
+      POSTGRES_PASSWORD: ginco
+  db:
+    build: postgres-ginco
+    image: postgres-ginco:TMA-2.0.9.8
+    environment:
+      POSTGRES_USER: ginco
+      POSTGRES_PASSWORD: ginco
